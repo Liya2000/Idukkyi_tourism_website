@@ -1,143 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact details</title>
-    <link rel="stylesheet" type="text/css"  href="sty.css" />
-    <link
-      rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-<style>
-* {
-  margin: 0;
-  padding: 0;
+  	<title>Contact Form 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  box-sizing: border-box;
-}
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-.container{
-    width: 90%;
-    height: 90vh;
-    position: relative;
-}
-.navbar{
-    width: 100%;
-    height: 100%;
-    background: #242424;
-    position: absolute;
-    transform: perspective(1000px) rotateY(-180deg);
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    transition: transform .4s;
-}
-.navbar a{
-    margin: 0.4em;
-    padding: 0.2em 0.4em;
-    text-decoration: none;
-    font-size: 1.5em;
-    color: white;
-    position: relative;
-    cursor: pointer;
-}
-.navbar a::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: pink;
-    z-index: -1;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .4s;
-}
-.navbar a:hover::before{
-    transform: scaleX(0.5);
-}
-.main{
-    width: 100%;
-    height: 100%;
-    background: #454545;
-    position: absolute;
-    transform: perspective(1000px) rotateY(0deg);
-    backface-visibility: hidden;
-    position: relative;
-    transition: transform .4s;
-}
-.active_navbar{
-    transform: rotateY(0deg);
-}
-.active_main{
-    transform: rotateY(180deg);
-}
-.btn{
-    width: 50px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-20px, -50%);
-    background: #2b2b2b;
-    padding: 0.5em;
-    border-radius: 10px;
-    color: white;
-    z-index: 20;
-    border: none;
-    cursor: pointer;
-}
-.main div{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    overflow-x: auto;
-}
-section{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5em;
-    color: white;
-}
-section:nth-child(1){
-    background: #e93b81;
-}
-section:nth-child(2){
-    background: #511281;
-}
-section:nth-child(3){
-    background: #fb3640;
-}
-section:nth-child(4){
-    background: #19b5c0;
-}
-</style>
-  </head>
-  <body>
-<p><div>
-ABOUT US
-It is mostly performed in temples by the chakyar community and Ambalavasi Nambiars who dons the role of a jester along with instruments like Mizhavu and llathalam.<br/>
-He starts the performance with the invocation of the presiding deity of that temple then goeson to narrate episodes of the puranas. <br/>
-He also narrates and ridicules local and current situations in the area using wit and humor.<br>
-This art is performed by a solo performer who is also the narrator in a unique headgear resembling a snake’s hood and a black moustache.<br>
- His body will be smeared with sandal wood paste with red dots all over his body. <br>
-His narration will be a mixture of prose and poetry mixed with innocent mockery, wit and humor and usually performed in conjunction with festivals.<br>
-</p></div><br><br><br><br>
-      <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-      <a href="#"><i class="fab fa-whatsapp fa-2x"></i></a>
-      <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-      <a href="#"><i class="fab fa-discord fa-2x"></i></a>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-  </body>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="contact.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Contact US</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									<h3 class="mb-4">Get in touch</h3>
+									<div id="form-message-warning" class="mb-4"></div> 
+				      		<div id="form-message-success" class="mb-4">
+				            Your message was sent, thank you!
+				      		</div>
+									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" for="name">Full Name</label>
+													<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+												</div>
+											</div>
+											<div class="col-md-6"> 
+												<div class="form-group">
+													<label class="label" for="email">Email Address</label>
+													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="subject">Subject</label>
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="#">Message</label>
+													<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" value="Send Message" class="btn btn-primary">
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-5 d-flex align-items-stretch">
+								<div class="info-wrap bg-primary w-100 p-md-5 p-4">
+									<h3>Let's get in touch</h3>
+									<p class="mb-4">We're open for any suggestion or just to have a chat</p>
+				        	<div class="dbox w-100 d-flex align-items-start">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-map-marker"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Address:</span> Idukki Guide, Idukki, Kerala, India</p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-phone"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Phone:</span> <a href="tel://1234567920">+ 9961354336</a></p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-paper-plane"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@idukkiguide.com</a></p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-globe"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Website</span> <a href="#">www.idukiguide.com</a></p>
+					          </div>
+				          </div>
+			          </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	</body>
 </html>
+
